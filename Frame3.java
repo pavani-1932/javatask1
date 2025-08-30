@@ -82,9 +82,21 @@ public class Frame3 {
         }
 
         // Switch back to top frame
-        driver.switchTo().parentFrame();
+        driver.switchTo().defaultContent();
+
+        // Verify page title is "Frames"
+        String pageTitle = driver.getTitle();
+        if (pageTitle.equals("Frames")) {
+            System.out.println("Verified page title is 'Frames'");
+        } else {
+            System.out.println("Expected title 'Frames', but got: " + pageTitle);
+        }
+
+        // Close browser
+        driver.quit();
         
         
 
     }
 }
+
